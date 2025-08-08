@@ -1,4 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
+import React from 'react';
 import { Linking, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import { ThemedText } from '@/components/ThemedText';
@@ -12,7 +13,7 @@ interface FeatureCardProps {
   color: string;
 }
 
-const FeatureCard = ({ icon, title, description, color }: FeatureCardProps) => {
+function FeatureCard({ icon, title, description, color }: FeatureCardProps) {
   return (
     <ThemedView style={[styles.card, { borderLeftColor: color }]}>
       <View style={styles.cardHeader}>
@@ -22,9 +23,9 @@ const FeatureCard = ({ icon, title, description, color }: FeatureCardProps) => {
       <ThemedText style={styles.cardDescription}>{description}</ThemedText>
     </ThemedView>
   );
-};
+}
 
-const ExploreScreen = () => {
+export default function ExploreScreen() {
   const tintColor = useThemeColor({}, 'tint');
 
   const handleOpenGitHub = () => {
@@ -260,5 +261,3 @@ const styles = StyleSheet.create({
     opacity: 0.4,
   },
 });
-
-export default ExploreScreen;
